@@ -14,7 +14,7 @@
 
 @implementation ViewController
 
-NSNumber *myNumber,*mynumber2;
+NSInteger num1,num2,op;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,9 +68,58 @@ NSNumber *myNumber,*mynumber2;
     _tfView.text = [NSString stringWithFormat:@"%@%d",_tfView.text ,n0 ];
 }
 -(IBAction)suma:(id)sender{
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    myNumber = [formatter numberFromString:_tfView.text];
-    NSLog(@"%@",myNumber);
+    NSString *a = _tfView.text;
+    num1 = [a integerValue];
+    op=1;
     _tfView.text = [NSString stringWithFormat:@""];
 }
+-(IBAction)resta:(id)sender{
+    NSString *a = _tfView.text;
+    num1 = [a integerValue];
+    op=2;
+    _tfView.text = [NSString stringWithFormat:@""];
+}
+-(IBAction)multi:(id)sender{
+    NSString *a = _tfView.text;
+    num1 = [a integerValue];
+    op=3;
+    _tfView.text = [NSString stringWithFormat:@""];
+}
+-(IBAction)div:(id)sender{
+    NSString *a = _tfView.text;
+    num1 = [a integerValue];
+    op=4;
+    _tfView.text = [NSString stringWithFormat:@""];
+}
+
+-(IBAction)igual:(id)sender{
+    NSString *a = _tfView.text;
+    num2 = [a integerValue];
+    NSInteger total = 0;
+    switch (op) {
+        case 1:
+            total = num1 + num2;
+            break;
+        case 2:
+            total = num1 - num2;
+            break;
+        case 3:
+            total = num1 * num2;
+            break;
+        case 4:
+            total = num1 / num2;
+            break;
+        default:
+            break;
+    }
+    
+    _tfView.text = [NSString stringWithFormat:@"%ld",total];
+}
+-(IBAction)borrar:(id)sender{
+    num1 = 0;
+    num2 = 0;
+    op=0;
+    _tfView.text = [NSString stringWithFormat:@""];
+}
+
 @end
