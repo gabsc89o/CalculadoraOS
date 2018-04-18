@@ -14,7 +14,8 @@
 
 @implementation ViewController
 
-NSInteger num1,num2,op;
+NSInteger op;
+float num1,num2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,35 +68,38 @@ NSInteger num1,num2,op;
     int n0 = 0;
     _tfView.text = [NSString stringWithFormat:@"%@%d",_tfView.text ,n0 ];
 }
+-(IBAction)punto:(id)sender{
+    _tfView.text = [NSString stringWithFormat:@"%@.",_tfView.text ];
+}
 -(IBAction)suma:(id)sender{
     NSString *a = _tfView.text;
-    num1 = [a integerValue];
+    num1 = [a floatValue];
     op=1;
     _tfView.text = [NSString stringWithFormat:@""];
 }
 -(IBAction)resta:(id)sender{
     NSString *a = _tfView.text;
-    num1 = [a integerValue];
+    num1 = [a floatValue];
     op=2;
     _tfView.text = [NSString stringWithFormat:@""];
 }
 -(IBAction)multi:(id)sender{
     NSString *a = _tfView.text;
-    num1 = [a integerValue];
+    num1 = [a floatValue];
     op=3;
     _tfView.text = [NSString stringWithFormat:@""];
 }
 -(IBAction)div:(id)sender{
     NSString *a = _tfView.text;
-    num1 = [a integerValue];
+    num1 = [a floatValue];
     op=4;
     _tfView.text = [NSString stringWithFormat:@""];
 }
 
 -(IBAction)igual:(id)sender{
     NSString *a = _tfView.text;
-    num2 = [a integerValue];
-    NSInteger total = 0;
+    num2 = [a floatValue];
+    float total = 0;
     switch (op) {
         case 1:
             total = num1 + num2;
@@ -113,7 +117,7 @@ NSInteger num1,num2,op;
             break;
     }
     
-    _tfView.text = [NSString stringWithFormat:@"%ld",total];
+    _tfView.text = [NSString stringWithFormat:@"%f",total];
 }
 -(IBAction)borrar:(id)sender{
     num1 = 0;
