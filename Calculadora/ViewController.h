@@ -10,6 +10,6 @@
 
 @interface ViewController : UIViewController
 
-
+@property IBOutlet UILabel *tfView;
 @end
 
